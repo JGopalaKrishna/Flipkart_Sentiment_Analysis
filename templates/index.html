@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Review Sentiment Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>    
+<body>
+    <h2>Flipkart Sentiment Analyzer</h2>
+    <form method="POST">
+        <label>Enter Flipkart Product URL:</label>
+        <input type="text" name="url" size="80" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if reviews %}
+        <h3>Sentiment Summary:</h3>
+        <ul>
+            <li>Positive: {{ sentiments["Positive"] }}</li>
+            <li>Negative: {{ sentiments["Negative"] }}</li>
+            <li>Neutral: {{ sentiments["Neutral"] }}</li>
+        </ul>
+
+        <h3>Reviews:</h3>
+        <ul>
+            {% for review in reviews %}
+                <li>{{ review }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

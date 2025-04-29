@@ -1,0 +1,4 @@
+Flask
+selenium
+bs4
+textblob
